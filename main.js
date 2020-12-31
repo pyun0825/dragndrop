@@ -17,13 +17,16 @@ for(const empty of empties){
 
 //Drag Functions
 
-function dragStart() {
-    this.className += ' hold';
-    setTimeout(()=> this.className = 'invisible', 0);
+function dragStart(event) {
+    //this.className += ' hold';
+    //setTimeout(()=> this.className = 'invisible', 0);
+    event.target.classList.add("hold");
+    setTimeout(() => event.target.className = "invisible", 0);
 }
 
-function dragEnd() {
-    this.className = 'fill'
+function dragEnd(event) {
+    //this.className = 'fill'
+    event.target.className = "fill";
 }
 
 function dragOver(event) {
@@ -31,12 +34,16 @@ function dragOver(event) {
 }
 function dragEnter(event) {
     event.preventDefault();
-    this.className += ' hovered';
+    //this.className += ' hovered';
+    event.target.classList.add("hovered");
 }
-function dragLeave() {
-    this.className = 'empty';
+function dragLeave(event) {
+    //this.className = 'empty';
+    event.target.className = "empty";
 }
-function dragDrop() {
-    this.className = 'empty'
-    this.append(fill);
+function dragDrop(event) {
+    //this.className = 'empty'
+    //this.append(fill);
+    event.target.className = "empty";
+    event.target.append(fill);
 }
